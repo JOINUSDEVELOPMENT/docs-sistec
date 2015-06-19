@@ -1,0 +1,476 @@
+<h2>Oferta de Turmas</h2>
+
+<h3>Conceito</h3>
+
+
+
+	<pre class="alert-warning" style="font-size: 14px;font-family: 'Open Sans',sans-serif;" role="alert" >	
+Segunda etapa do fluxo da Bolsa-Formação, a oferta de turma é o processo pelo qual unidades organizam as turmas por cursos e locais específicos. 
+A oferta gera a obrigação pela unidade ofertante de efetivamente criar a turma – salvo quando menos de metade do número de vagas originalmente 
+previstas for ocupado. 	
+	
+O formulário eletrônico de oferta de turma está divido nas seguintes seções:
+	
+		Unidade Ofertante
+		Endereço da Unidade Ofertante
+		Informações do Curso
+		Responsável pelo Acompanhamento Pedagógico da Oferta
+		Controle de Fluxo (preenchido automaticamente pelo SISTEC)
+		Grade Horária do Curso e Questões de Controle
+	</pre>
+
+
+<h3>Mapa de Processo</h3>
+<code class="hljs http">
+(Fonte: Escritório de Processo)
+<br />
+<img  src="/img/processos/oferta_turmas.png" width="100%">
+</code>
+
+
+<h3>Funcionalidades</h3>
+<div class="alert alert-warning alert-dismissible fade in" role="alert">
+  	<strong>Listar Oferta</strong>: Lista de todas as ofertas já criadas pela Unidade de Ofertante. A lista é gerada através do uso de filtros. 
+	<br /><br /><strong>Publicar Oferta</strong>: Lista de todas as ofertas que estão elegíveis para publicação.
+	<br /><br /><strong>Cancelar Oferta</strong>: Opção de cancelamento de oferta pela Unidade Ofertante.
+	<br /><br /><strong>Excluir Oferta</strong>: Opção de cancelamento de oferta pela Unidade Ofertante.
+	<br /><br /><strong>Editar Oferta</strong>: Opção de edição de informações da oferta.
+	<br /><br /><strong>Alterar Data de Inicio da Oferta</strong>: Alteração de data de inicio da oferta.
+  
+</div>
+
+<h3>Regras</h3>
+<div class="alert alert-primary alert-dismissible fade in" role="alert">
+	<strong>1. Identificador da Turma</strong>
+	<p>
+		O sistema deve gerar automaticamente um identificador para a turma criada da seguinte forma: 
+		Nome do Curso 1ª Letra do Turno Escolhido sequencial/ano.
+		Exemplo: Inglês Básico T3/2014
+	</p>
+	<strong>2. Total de  Horas Aula</strong>
+	<p>
+		O sistema deve calcular o total de horas aulas multiplicando o valor do campo “Carga horária do curso em horas’ por 60 para obtenção da quantidade de minutos e dividindo pelo valor informado no campo “Duração da hora-aula em minutos”: (Carga horária do curso em horas x 60) / Duração da hora-aula em minutos.
+	</p>
+	<strong>3. Unidades Ofertantes</strong>
+	<p>
+		O sistema apresenta na combo do campo “Nome da unidade ofertante” apenas aquelas unidades que realizaram pactuação.
+	</p>
+	<strong>4. Listagem de Cursos</strong>
+	<p>
+		O sistema apresenta na listagem os cursos que foram pactuados para o Tipo de Oferta selecionado e que estejam homologados pelo MEC, ou que tenham sido repactuados e esteja aguardando aprovação do demandante de origem.
+	</p>
+	<strong>5. Editar Oferta</strong>
+	<p>
+		O sistema só deve permitir editar as ofertas que estejam com o Status “CRIADA”, qualquer outro status o sistema não deve apresentar o ícone para editar.	
+	</p>
+	<strong>6. Total de  Horas Aula</strong>
+	<p>
+		O sistema deve calcular o total de horas aulas multiplicando o valor do campo “Carga horária do curso em horas’ por 60 para obtenção da quantidade de minutos e dividindo pelo valor informado no campo “Duração da hora-aula em minutos”: (Carga horária do curso em horas x 60) / Duração da hora-aula em minutos.
+	</p>
+	<strong>7. Alterar data de ínicio da oferta</strong>
+	<p>
+		Para as ofertas que estejam com o status igual à Publicada o sistema deve permitir alterar a data de inicio apenas duas vezes para os perfis Gestor Responsável de Unidade de Ensino, Gestor de Unidade de Ensino e Assessor de Unidade de Ensino. Porém, o perfil de Gestor MEC poderá alterar a data sempre que se fizer necessário. A nova data de inicio deve ser no máximo 30 dias da data de inicio atual do curso.
+		Para as ofertas com o status Criada o sistema permite a alteração sempre que o usuário desejar. 
+		O sistema não deve permita a alterações de data de início de turmas, com valores superiores à data final da pactuação do semestre de referência, considerando o período de oferta de turmas que foi pactuado.
+	</p>
+	<strong>8. Cancelar Oferta</strong>
+	<p>
+		O sistema deve exibir as Ofertas de Turmas que estão com os status "Criada", "Publicada" e "Confirmada" e “Iniciada”.
+	</p>
+	<strong>9. Publicar e Excluir a Oferta</strong>
+	<p>
+		O sistema deve exibir as Ofertas de Turmas que estão com os status "Criada". 
+		Quando for realizar a publicação de uma oferta, o sistema deverá verificar os parâmetros de data mínima e data máxima para habilitar a opção de publicar oferta. Esses parâmetros serão mantidos pelo perfil GESTOR MEC através de um recurso especifico na aplicação.
+	</p>
+	<strong>10. Total de  Horas Aula</strong>
+	<p>
+		O sistema deve calcular o total de horas aulas multiplicando o valor do campo “Carga horária do curso em horas’ por 60 para obtenção da quantidade de minutos e dividindo pelo valor informado no campo “Duração da hora-aula em minutos”: (Carga horária do curso em horas x 60) / Duração da hora-aula em minutos.
+	</p>	
+</div>
+
+<h3>Prototipação</h3>
+<div class="col-md-12 col-xs-12">
+			<!-- Inicio -->
+			<div class="row">
+				<a class="pergunta collapsed" data-toggle="collapse" href="#col21" aria-expanded="false" aria-controls="col21">
+				  Criar Oferta
+				</a>
+				<div class="collapse" id="col21" aria-expanded="false" style="height: 0px;">
+						<!-- CONTEÚDO DA PROTOTIPAÇÃO -->
+							  <div class="row">
+								  <h3> Dados da Unidade Ofertante</h3>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Unidade de Ensino:</label>
+								    <div class="legenda">Senai, Santa Catarina - Florianópolis</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">CEP:</label>
+								    <div class="legenda">88032-005</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Logradouro:</label>
+								    <div class="legenda">Rodovia José Carlos Daux</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Bairro:</label>
+								    <div class="legenda">Bairro Norte</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Estado:</label>
+								    <div class="legenda">Santa Catarina</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Município:</label>
+								    <div class="legenda">Florianópolis</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Telefone de atendimento:</label>
+								    <div class="legenda">(48) 3239-5800</div>
+								  </div>
+							</div>
+							<div class="row">
+								<h3>Dados da Oferta</h3>
+								<div class="form-group col-md-12 col-xs-12">
+								  <label for="Select Dropbox:">Tipo de Oferta:</label>	
+					              <label class="radio-inline">
+					                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Exclusiva
+					              </label>
+					              <label class="radio-inline">
+					                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Preferencial
+					              </label>
+					              <label class="radio-inline">
+					                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Compartilhada
+					              </label>
+					            </div>
+					            <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Curso:</label>
+								    <select class="form-control">
+								      <option>Curso A</option>
+								      <option>Curso B</option>
+								      <option>Curso C</option>
+								      <option>Curso D</option>
+								      <option>Curso N</option>
+								    </select>
+							  	</div>
+							  	<div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Turno:</label>
+								    <select class="form-control">
+								      <option>Manhã</option>
+								      <option>Tarde</option>
+								      <option>Noite</option>
+								    </select>
+							  	</div>
+							  	
+					          	<div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Escolaridade Mínima:</label>
+								    <select class="form-control">
+											<option value="" label="Selecione">Selecione</option>
+										    <option value="2" label="Ensino Fundamental I (1ª a 4ª) Incompleto ">Ensino Fundamental I (1ª a 4ª) Incompleto </option>
+										    <option value="14" label="Ensino Fundamental I (4ª Série) Completo">Ensino Fundamental I (4ª Série) Completo</option>
+										    <option value="3" label="Ensino Fundamental II (5ª a 8ª) Incompleto">Ensino Fundamental II (5ª a 8ª) Incompleto</option>
+										    <option value="8" label="Ensino Fundamental II (8ª Série) Completo">Ensino Fundamental II (8ª Série) Completo</option>
+										    <option value="4" label="Ensino Médio incompleto">Ensino Médio incompleto</option>
+										    <option value="5" label="Ensino Médio completo">Ensino Médio completo</option>
+									</select>
+							  	</div>
+							  	<div class="form-group col-md-5 col-xs-12">
+					              <label for="Campo Menor:">Carga Horária:</label>
+					              <input class="form-control width-20" id="" placeholder="">
+					          	</div>
+					          	<div class="form-group col-md-3 col-xs-6">
+					              <label for="Edital">Data de início do curso</label>
+					              <div class="input-group date" id="datetime-min">
+					                    <input type="text" class="form-control data" placeholder="Selecione." autocomplete="off">
+					                  <span class="input-group-btn">
+					                      <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+					                    </span>
+					                </div>
+					            </div>
+					            <div class="form-group col-md-3 col-xs-6">
+					              <label for="Edital">Data de término do curso</label>
+					              <div class="input-group date" id="datetime-min">
+					                    <input type="text" class="form-control data" placeholder="Selecione." autocomplete="off">
+					                  <span class="input-group-btn">
+					                      <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+					                    </span>
+					                </div>
+					            </div>
+					            <div class="form-group col-md-6 col-xs-12">
+					              <label for="Input Desabilitado:">Saldo de Vagas:</label>
+					              <input class="form-control width-20" id="" placeholder="Input Desabilitado" disabled="" value="500">
+					            </div>
+					            <div class="form-group col-md-6 col-xs-12">
+					              <label for="Input Desabilitado:">Número de Vagas da Oferta:</label>
+					              <input class="form-control width-20" id="" placeholder="" value="">
+					            </div>
+							</div>
+							<div class="row">
+								  <h3>Quadro Resumo</h3>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Data de Criação da Oferta:</label>
+								    <div class="legenda">18/06/2015</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Data Limite para publicação da Oferta:</label>
+								    <div class="legenda">25/06/2015</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Data de Início da Inscrição Online:</label>
+								    <div class="legenda">10/07/2015</div>
+								  </div>
+								  <div class="form-group col-md-6 col-xs-12">
+								    <label for="Select Dropbox:">Data Final da Inscrição Online:</label>
+								    <div class="legenda">01/08/2015</div>
+								  </div>
+							</div>
+							<div class="row">
+								  <h3>Grade Horária do Curso</h3>
+								  <div class="row">
+									  <div class="form-group col-md-6 col-xs-12">
+						              	<label for="Input Desabilitado:">Duração da hora-aula em minutos:</label>
+						              	<input class="form-control width-20" id="" placeholder="" value="">
+						              </div>
+						        
+									  <div class="form-group col-md-6 col-xs-12">
+									    <label for="Select Dropbox:">Total de horas-aulas:</label>
+									    <div class="legenda">260</div>
+									  </div>
+								  </div>
+								  
+								  <div class="row">
+									  <div class="form-group col-md-6 col-xs-12">
+						              	<label for="Input Desabilitado:">Hora e Minuto de Início:</label>
+						              	<input class="form-control width-20" id="" placeholder="" value="">
+						              </div>
+						             
+						              <div class="form-group col-md-6 col-xs-12">
+						              	<label for="Input Desabilitado:">Hora e Minuto de Conclusão:</label>
+						              	<input class="form-control width-20" id="" placeholder="" value="">
+						              </div>
+					              </div>
+					            
+					            
+					            
+					            <div class="row">
+					              	<table style="margin: 5px;width:100%;">
+							            <tbody>
+							                <tr>
+							                    <td style="padding:2px;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;"></td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">segunda-feira</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">terça-feira</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">quarta-feira</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">quinta-feira</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">sexta-feira</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">sábado</td>
+							                    <td style="padding:2px;width:70px;text-align:center; border: 1px solid #ccc;">domingo</td>
+							                </tr>
+							                <tr id="rowInicio">
+							                    <td style="padding:2px;width:135px;border: 1px solid #ccc;">Hora e minuto de início</td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_segunda_feira]" id="hrIniSeg" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_terca_feira]" id="hrIniTer" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_quarta_feira]" id="hrIniQua" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_quinta_feira]" id="hrIniQui" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_sexta_feira]" id="hrIniSex" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_sabado]" id="hrIniSab" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_inicio_domingo]" id="hrIniDom" maxlength="5" class="time" type="text"></td>
+							                </tr>
+							                <tr id="rowFim">
+							                    <td style="padding:2px;width:135px;border: 1px solid #ccc;">Hora e minuto de conclusão</td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_segunda_feira]" id="hrFimSeg" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_terca_feira]" id="hrFimTer" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_quarta_feira]" id="hrFimQua" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_quinta_feira]" id="hrFimQui" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_sexta_feira]" id="hrFimSex" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_sabado]" id="hrFimSab" maxlength="5" class="time" type="text"></td>
+							                    <td style="padding:2px;text-align:center; border: 1px solid #ccc;"><input style="border: 0 none;text-align: center;width: 62px;" value="" name="grade[hr_fim_domingo]" id="hrFimDom" maxlength="5" class="time" type="text"></td>
+							                </tr>
+							            </tbody>
+							        </table>
+					            </div> 
+					            
+					             
+							</div>
+							
+    						  		<button type="button" class="btn btn-default">Salvar</button>
+    						
+
+						<!-- FIM CONTEÚDO DA PROTOTIPAÇÃO -->
+				</div>
+			</div>		
+			<!-- fim -->
+			<div class="row">
+				<a class="pergunta collapsed" data-toggle="collapse" href="#col22" aria-expanded="false" aria-controls="col22">
+				  Listar Ofertas
+				</a>
+				<div class="collapse" id="col22" aria-expanded="false" style="height: 0px;">
+				   		  <!-- CONTEÚDO DA PROTOTIPAÇÃO -->
+							  <!-- Select Dropbox -->
+							  <div class="form-group col-md-6 col-xs-12">
+							    <label for="Select Dropbox:">Unidade de Ensino:</label>
+							    <select class="form-control">
+							      <option>Unidade A</option>
+							      <option>Unidade B</option>
+							      <option>Unidade C</option>
+							      <option>Unidade D</option>
+							      <option>Unidade N</option>
+							    </select>
+							  </div>
+							  <div class="form-group col-md-6 col-xs-12">
+							    <label for="Select Dropbox:">Tipo de Curso:</label>
+							    <select class="form-control">
+							      <option>Fic</option>
+							      <option>Técnico</option>
+							    </select>
+							  </div>
+							  <div class="form-group col-md-6 col-xs-12">
+							    <label for="Select Dropbox:">Situação da Oferta:</label>
+							    <select class="form-control">
+							      <option>Criada</option>
+							      <option>Publicada</option>
+							      <option>Confirmada</option>
+							      <option>Iniciada</option>
+							      <option>Concluída</option>
+							      <option>Cancelada</option>
+							    </select>
+							  </div>  
+							  <div class="form-group col-md-5 col-xs-12">
+					              <label for="Campo Menor:">Código da Oferta:</label>
+					              <input class="form-control width-20" id="" placeholder="">
+					          </div>
+					          <!-- Botão Padrão -->
+					          <div class="form-group col-md-5 col-xs-12">
+    						  	<button type="button" class="btn btn-default">Filtrar</button>
+    						  </div>
+    						  
+    						  <!-- TABELA COM A LISTAGEM -->
+    						  <div class="side20 table-responsive">
+				        
+							        <div class="form-inline col-md-3 col-xs-12 sp-10">
+							          <label for="Select Dropbox:">Exibir:</label>
+							          <select class="form-control">
+							            <option>5</option>
+							            <option>15</option>
+							            <option>25</option>
+							            <option>50</option>
+							            <option>100</option>
+							          </select>
+							        </div>
+							        <div class="row">
+							          <table class="table table-bordered table-striped">
+							              <thead>
+							                <tr>
+							                  <th><div class="checkbox"><label> <input type="checkbox" value=""></label></div></th>
+							                  <th>ID <i class="fa fa-sort"></i></th>
+							                  <th>Turma <i class="fa fa-sort"></i></th>
+							                  <th>Data de Criação <i class="fa fa-sort"></i></th>
+							                  <th>Ações <i class="fa fa-sort"></i></th>
+							                </tr>
+							              </thead>
+							              <tbody>
+							            <tr>
+							              <th scope="row"><div class="checkbox"><label> <input type="checkbox" value=""></label></div></th>
+							              <td><strong>123/2015</strong></td>
+							              <td><strong>ACONSELHADOR EM DEPENDÊNCIA QUÍMICA M1/2014</strong></td>
+							              <td><strong>27/11/2014</strong></td>
+							              <td>
+							                <div class="tableAcoes">
+							                  <a href=""><i class="fa fa-flag text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Alerta"></i></a>
+							                  <a href=""><i class="fa fa-pencil text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"></i></a>
+							                  <a href=""><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"></i></a>
+							                  <a href=""><i class="fa fa-calendar" data-toggle="tooltip" data-placement="top" title="" data-original-title="Calendário"></i></a>
+							                  <a href=""><i class="fa fa-paperclip text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Anexo"></i></a>
+							                </div>
+							              </td>
+							            </tr>
+							
+							                <tr>
+							              <th scope="row"><div class="checkbox"><label> <input type="checkbox" value=""></label></div></th>
+							              <<td><strong>123/2015</strong></td>
+							              <td><strong>ACONSELHADOR EM DEPENDÊNCIA QUÍMICA M1/2014</strong></td>
+							              <td><strong>27/11/2014</strong></td>
+							              <td>
+							                <div class="tableAcoes">
+							                  <a href=""><i class="fa fa-flag text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Alerta"></i></a>
+							                  <a href=""><i class="fa fa-pencil text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"></i></a>
+							                  <a href=""><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"></i></a>
+							                  <a href=""><i class="fa fa-calendar text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Calendário"></i></a>
+							                  <a href=""><i class="fa fa-paperclip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Anexo"></i></a>
+							                </div>
+							              </td>
+							            </tr>
+							                
+							                <tr>
+							              <th scope="row"><div class="checkbox"><label> <input type="checkbox" value=""></label></div></th>
+							              <td><strong>123/2015</strong></td>
+							              <td><strong>ACONSELHADOR EM DEPENDÊNCIA QUÍMICA M1/2014</strong></td>
+							              <td><strong>27/11/2014</strong></td>
+							              <td>
+							                <div class="tableAcoes">
+							                  <a href=""><i class="fa fa-flag text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Alerta"></i></a>
+							                  <a href=""><i class="fa fa-pencil text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"></i></a>
+							                  <a href=""><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"></i></a>
+							                  <a href=""><i class="fa fa-calendar" data-toggle="tooltip" data-placement="top" title="" data-original-title="Calendário"></i></a>
+							                  <a href=""><i class="fa fa-paperclip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Anexo"></i></a>
+							                </div>
+							              </td>
+							            </tr>
+							                
+							            <tr class="bg-warning">
+							              <th scope="row"><div class="checkbox"><label> <input type="checkbox" value=""></label></div></th>
+							              <td><strong>123/2015</strong></td>
+							              <td><strong>ACONSELHADOR EM DEPENDÊNCIA QUÍMICA M1/2014</strong></td>
+							              <td><strong>27/11/2014</strong></td>
+							              <td>
+							                <div class="tableAcoes">
+							                  <a href=""><i class="fa fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Alerta"></i></a>
+							                  <a href=""><i class="fa fa-pencil text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"></i></a>
+							                  <a href=""><i class="fa fa-envelope-o text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"></i></a>
+							                  <a href=""><i class="fa fa-calendar text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Calendário"></i></a>
+							                  <a href=""><i class="fa fa-paperclip text-inativo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Anexo"></i></a>
+							                </div>
+							              </td>
+							            </tr>
+							              </tbody>
+							            </table>
+							          </div>  <!-- row -->  
+							
+							        <div class="row">
+							          <nav class="text-center">
+							            <ul class="pagination">
+							              <li class="disabled">
+							                <a href="#" aria-label="First">
+							                  <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
+							                </a>
+							              </li>
+							              <li class="disabled">
+							                <a href="#" aria-label="Previous">
+							                  <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+							                </a>
+							              </li>
+							              <li class="active"><a href="#">1</a></li>
+							              <li><a href="#">2</a></li>
+							              <li><a href="#">3</a></li>
+							              <li><a href="#">4</a></li>
+							              <li><a href="#">5</a></li>
+							              <li>
+							                <a href="#" aria-label="Next">
+							                  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+							                </a>
+							              </li>
+							              <li>
+							                <a href="#" aria-label="Next">
+							                  <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
+							                </a>
+							              </li>
+							            </ul>
+							          </nav>
+							        </div>
+							      </div>
+							    </div>
+    						  <!-- FIM DA TABELA -->	     
+				        <!-- FIM DO CONTEÚDO DA PROTOTIPAÇÃO -->
+				</div>
+			</div>
+</div>
+
+

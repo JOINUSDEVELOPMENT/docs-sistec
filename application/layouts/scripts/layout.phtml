@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Documentação Sistec - Versão 0.1</title>
+
+<!--[if lt IE 9]>
+   <script src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/vendor/js/html5shiv.js" type="text/javascript"></script>
+   <script src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/vendor/js/respond.js" type="text/javascript"></script>
+  <![endif]-->
+
+<!-- CSS --> 
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"  type="text/css">
+
+    <link rel="stylesheet" href="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/vendor/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/vendor/css/vendor.min.css" type="text/css"><!-- Todos os estilos minificados -->
+    <link rel="stylesheet" href="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/css/mec.min.css" type="text/css">
+    <!-- Todos os estilos minificados --> 
+    <link rel="stylesheet" href="application/css/application.css">  <!-- Override -->
+  <!-- CSS --> 
+
+
+</head>
+
+<body>
+
+<!-- barra do governo -->
+<div id="barra-brasil">
+  <a href="http://brasil.gov.br" class="barraGoverno">Portal do Governo Brasileiro</a>
+</div>
+
+<!-- Static Modal -->
+<div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-spinner fa-spin"></i>
+                    <h4>Carregando... <button type="button" class="close" style="float: none;" data-dismiss="modal" aria-hidden="true">×</button></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MENU LATERAL -->
+
+<!-- FIM MENU LATERAL -->
+<!-- Carrega o Menu Lateral Específico de cada Área -->
+<?php 
+	echo $this->navigation()->menu()->render();
+?>
+
+<div id="topo"></div><!-- NÃO FAZ PARTE DO CÓDIGO, APENAS MARCAÇÃO DE ANCORA --> 
+<div class="topo">
+  <!-- ITENS DO TOPO ALINHADOS A ESQUERDA -->
+  <div class="ferramentas-esquerda">
+    <div class="Mnu botao-menu"><i class="fa fa-bars"></i></div>
+    <div class="nome-sistema">
+      <h1><a href="index">DOCUMENTAÇÃO SISTEC</a></h1>
+    </div>
+  </div>
+  
+  
+  
+  <!-- ITENS DO TOPO ALINHADOS A DIREITA -->  
+  <div class="ferramentas-direita">
+  <!-- 
+    <div class="caixa-topo dropdown">
+      <div class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+        <div class="label-topo">Nome Usuario - 000.000.000-00  <i class="fa fa-caret-down"></i></div>
+        <div class="botao-topo"><i class="fa fa-user"></i></div>
+          </div>
+          <ul class="dropdown-menu" role="menu">
+            <li>Nome do Usuário Padrão</li>
+          <li>CPF: 000.000.000-00</li>
+        <li>Perfil: Administrador</li>
+          <li>Último acesso: 06/02/2015</li>
+        </ul>
+    </div>
+     -->
+     <div class="caixa-topo">
+      <a href="/index/pronatec">
+        <div class="label-topo">Pronatec</div>
+        <div class="botao-topo"><i class="fa fa-paypal"></i></div>
+      </a>
+    </div>
+    <div class="caixa-topo">
+      <a href="/index/mapas">
+        <div class="label-topo">Mapa de Processos</div>
+        <div class="botao-topo"><i class="fa fa-share-alt-square"></i></div>
+      </a>
+    </div>
+    <div class="caixa-topo">
+      <a href="/index/portarias">
+        <div class="label-topo">Portarias</div>
+        <div class="botao-topo"><i class="fa fa-file-text-o"></i></div>
+      </a>
+    </div>
+    <div class="caixa-topo">
+      <a href="/administracao">
+        <div class="label-topo">Sistec</div>
+        <div class="botao-topo"><i class="fa fa-desktop"></i></div>
+      </a>
+    </div>
+    <div class="caixa-topo">
+      <a href="/index/links">
+        <div class="label-topo">Links Úteis</div>
+        <div class="botao-topo"><i class="fa fa-link"></i></div>
+      </a>
+    </div>
+    <!-- 
+    <div class="caixa-topo btn-warning">
+      <a href="index.html">
+        <div class="label-topo">Sair</div>
+        <div class="botao-topo "><i class="fa fa-sign-out"></i></div>
+      </a>
+    </div>
+     -->
+  </div>
+
+</div><!-- TOPO END -->
+ 
+<div class="espaco-topo"></div>
+
+<div id="wrapper" class="main_container conteudo container"> <!-- Container geral de conteúdo, delimita a área central do sistema -->
+   <div id="tipografia"></div><!-- NÃO FAZ PARTE DO CÓDIGO, APENAS MARCAÇÃO DE ANCORA --> 
+  	<!-- Conteudo -->
+    <?php echo $this->layout()->content ?>
+</div> <!-- Final Container -->
+    
+<footer>
+<!-- 	
+  <div class="marcas">SIGLA SISTEMA
+    <img src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/img/parceiro.jpg" alt=""> 
+    <img src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/img/parceiro.jpg" alt=""> 
+    <img src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/img/parceiro.jpg" alt=""> 
+  </div> 
+-->
+   
+  <div class="navegador"><i class="fa fa-flag"></i><br>Mantenha seu navegador atualizado.</div>
+  
+  <div class="border-gradient">
+  </div>
+  <div id="rodapePadrao">
+    <div id="wrapper-rodape-padrao">
+      <div id="versao">
+        #01   00.0.01-001
+      </div>
+      <div class="rodape-info">
+        <span class="ministerio">&copy; Minist&eacute;rio da Educa&ccedil;&atilde;o.</span> Todos os direitos reservados  |  Desenvolvimento: <abbr class="dti" title="Diretoria de Tecnologia da Informa&ccedil;&atilde;o - Minist&eacute;rio da Educa&ccedil;&atilde;o">DTI - MEC</abbr>
+      </div>
+      <div class="marca-brasil-flag">
+        <a href="http://www.brasil.gov.br/" target="_blank" class="logo-brasil">
+          <img src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/img/brasil.png" alt="Brasil - Governo Federal">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+  <script type="text/javascript" src="http://static00.mec.gov.br/barragoverno/barra.js"></script> <!-- Script da Barra do Governo -->
+
+  <script type="text/javascript" src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/vendor/js/vendor.min.js"></script>
+  <script type="text/javascript" src="http://static00.mec.gov.br/padraosistemas/bibliotecas/stable/mec/js/mec.min.js"></script>
+    
+  <script type="text/javascript" src="application/js/application.js"></script> <!-- Override -->
+
+<!-- JS -->
+</body>
+
+</html>
